@@ -1,16 +1,15 @@
-# DataScience Data Engineering Test
+# Data Engineering Test
 
-This repository contains a simple test for data engineering candidates at [DataScience](http://datascience.com).
+This repository contains a simple test for data engineering candidates.
 
-This test comes from a recent real-world experience working on client data sets at DataScience.
-The task is to transform a [poorly formatted TSV file](https://github.com/connecthq/data-engineering-test/blob/master/data/data.tsv)
+The task is to transform a [poorly formatted TSV file](hhttps://github.com/humana-dec/data-engineering-test/blob/master/data/data.tsv)
 into a properly formatted, machine-readable TSV file. If you clicked on the link above you may notice that GitHub complains about
 errors in the file. The file does not explicitly adhere to the TSV format, so just as GitHub cannot accurately parse the file,
-neither can our [Hadoop](https://pig.apache.org/), [Pig](https://pig.apache.org/), or data warehouse utilities.
+neither can our [Hadoop](https://hadoop.apache.org/), [Pig](https://pig.apache.org/), or data warehouse utilities.
 
 ### Instructions
 
-Your task is to write a simple script to transform [data.tsv](https://github.com/connecthq/data-engineering-test/blob/master/data/data.tsv)
+Your task is to write a simple script to transform [data.tsv](https://github.com/humana-dec/data-engineering-test/blob/master/data/data.tsv)
 into a properly formatted tab-separated values (TSV) file that can be read by any standard CSV/TSV parser. The resulting file should have the
 following properties:
 
@@ -26,10 +25,10 @@ data set. Extra points are awarded for resource-efficient and scalable solutions
 To take the test, please complete the following steps:
 
 1. Fork this repository
-2. Write a script in the language of your choice to convert [data/data.tsv](https://github.com/connecthq/data-engineering-test/blob/master/data/data.tsv)
+2. Write a script in the language of your choice to convert [data/data.tsv](https://github.com/humana-dec/data-engineering-test/blob/master/data/data.tsv)
   into a standard CSV parseable file, adhering to guidelines in the previous section
 3. Commit the script to the root directory of the repository
-4. Submit a pull request to this repository or email an archive to [careers@datascience.com](mailto:careers@datascience.com)
+4. Submit a pull request to this repository.
 
 ### Bonus (optional)
 
