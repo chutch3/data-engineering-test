@@ -1,0 +1,4 @@
+#!/bin/bash
+CLASSPATH=/studioH/com.humana/CleanDataApp.jar:.
+java -cp $CLASSPATH ProcessData 0 0 y n
+exit 0
