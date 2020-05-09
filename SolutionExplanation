@@ -1,0 +1,17 @@
+
+Current Approach: 
+
+I iterated through each line of the utf-16-le data and outputted it into a utf-8. From here, I split it by number of tabs in each line. The lines that did have 5 tab separations were added to the primary output .tsv. If a line did not contain 5 tabs, it was added to a secondary output .tsv. If needed, the secondary output of broken lines could be cleaned further and eventually both can be merged to a master .tsv or DB. 
+
+This approach was chosen because I did not want to assume that broken lines always belong to the same entry. 
+
+Another Approach:
+
+Another way to approach this problem would be to analyze the utf-16-le file by iterating through every individual byte and implementing a counter to determine number of byte-equivalent ‘\t’ seen between two byte-equivalent ‘\n’ characters. Logic and numerous conditions can be added to determine whether the reserved ‘\n’ appears before 5 ‘\t’ have been seen and if so, replace the ‘\n’ and continue to the next time ‘\n’ is seen. 
+
+Parallelism:
+
+Using the multithreading library, each thread will operate on an individual line of the input file. The thread will take inputs of the start byte and keep reading until it reaches a certain byte. While the .tsv processing and formatting can be run in parallel with no dependencies on other threads, the writing to the .tsv is critical and needs to be synchronized. This is primarily because each thread is performing a read, modify, and write operation, which needs to occur as an single atomic action. If asynchronous threads are run, these operations can act on the same object, ultimately corrupting the data file. When reads and writes occur in different threads, there is no guarantee that the reading thread will see a value written by another thread on a timely basis, or even at all. In order to ensure this visibility of memory writes across threads, synchronization will be used. If a thread fails, it can be caught with its stored inputs to run again in the future. Incorporating this catch is essential so the main thread does not terminate other threads.  
+
+
+
